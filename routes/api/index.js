@@ -7,7 +7,7 @@ router.use("/tags", require("./tags"));
 
 router.get("/healthcheck", function(req, res) {
   return res.status(200).json({
-      healthcheck = "OK"
+    healthcheck: "OK"
   });
 });
 
