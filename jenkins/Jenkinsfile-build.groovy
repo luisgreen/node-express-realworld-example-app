@@ -23,9 +23,16 @@ pipeline {
           }
         }
     }
-    stage('Building App Image') {
+  stage('Building App Image') {
       steps {
-        sh "docker build -t ${IMAGE_TAG} ."
+          script {
+            withCredentials([
+                string(credentialsId: 'SECRET', variable: 'SECRET'),
+                string(credentialsId: 'MONGODB_URI', variable: 'MONGODB_URI')
+            ]) {
+                sh "docker build --build-arg SECRET='${env.SECRET}' --build-arg MONGODB_URI='${env.MONGODB_URI}' -t ${IMAGE_TAG} ."
+            }
+          }
       }
     }
     stage('Pushing App Image to Registry') {
