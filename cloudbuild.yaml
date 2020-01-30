@@ -23,6 +23,8 @@ steps:
       - image.repository=gcr.io/$PROJECT_ID/backend
       - --set
       - image.version=$COMMIT_SHA
+      - --set
+      - environment=$_ENV
     env:
       - "CLOUDSDK_COMPUTE_REGION=$_REGION"
       - "CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER"
