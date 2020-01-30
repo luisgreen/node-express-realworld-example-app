@@ -29,7 +29,7 @@ steps:
       - "HELM_REPO_NAME=charts"
       - "HELM_REPO_URL=https://my-devprod-vps-helm-charts.storage.googleapis.com/"
       - "TILLERLESS=true"
-
-substitutions:
-  _REGION: europe-north1
-  _CLUSTER: lab-evlsrv-notejam-cluster
+# Declared on Cloud Trigger
+# substitutions:
+#   _REGION: europe-north1
+#   _CLUSTER: lab-evlsrv-notejam-cluster
